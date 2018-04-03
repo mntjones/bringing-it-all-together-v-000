@@ -16,5 +16,20 @@ class Dog
     DB[:conn].execute("DROP TABLE IF EXISTS dogs")
   end
   
+  def self.find_by_name(name)
+    dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ?", name).flatten
+    Dog.new(dog[0], dog[1], dog[2])
+  end
   
+  def update
+    DB[:conn].execute("UPDATE dogs SET name = ?, breed = ? WHERE id = ?", self.name, self.breed, self.id)
+  end
+  
+  def save
+    if self.id
+      self.update
+    else
+      DB[:conn].execute("INSERT INTO dogs (name, breed) VALUES (?, ?)", self.name, self.breed)
+      DB[:conn].execute("SELECT id ")
+  end
 end

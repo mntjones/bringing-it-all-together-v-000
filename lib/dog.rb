@@ -5,7 +5,7 @@ class Dog
   def initialize(dog)
     @id = nil
     @name = dog[:name]
-    @type = dog[:breed]
+    @breed = dog[:breed]
   end
   
   def Dog::create_table

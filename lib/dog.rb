@@ -30,6 +30,6 @@ class Dog
       self.update
     else
       DB[:conn].execute("INSERT INTO dogs (name, breed) VALUES (?, ?)", self.name, self.breed)
-      DB[:conn].execute("SELECT id ")
+      @id = DB[:conn].execute("SELECT id ")
   end
 end

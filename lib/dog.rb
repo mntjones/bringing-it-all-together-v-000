@@ -57,6 +57,7 @@ class Dog
     if !dog.empty?
       Dog.find_by_id(dog[0])
     else
-      Dog.new(name: dog_hash[0], breed: dog_hash[2])
+      Dog.create(dog_hash)
+    end
   end
 end

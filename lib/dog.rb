@@ -1,9 +1,8 @@
 require 'pry'
 
 class Dog
-  attr_accessor :name, :breed
-  attr_reader :id
-  
+  attr_accessor :id, :name, :breed
+
   def initialize(dog)
     @id = nil
     @name = dog[:name]

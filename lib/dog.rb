@@ -2,10 +2,10 @@ class Dog
   attr_accessor :name, :breed
   attr_reader :id
   
-  def initialize()
-    @id = id
-    @name = name
-    @breed = breed
+  def initialize(dog)
+    @id = dog[:id]
+    @name = dog[:name]
+    @type = dog[:breed]
   end
   
   def Dog::create_table

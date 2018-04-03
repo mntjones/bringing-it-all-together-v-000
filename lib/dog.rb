@@ -50,6 +50,7 @@ class Dog
   
   def self.find_by_id(id)
     dog = DB[:conn].execute("SELECT * FROM dogs WHERE id = ?", id).flatten
+    binding.pry
     Dog.new(id: dog[0], name: dog[1], breed: dog[2])
   end
   

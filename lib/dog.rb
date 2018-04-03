@@ -39,4 +39,17 @@ class Dog
       self
     end
   end
+  
+  def self.create(dog_hash)
+    dog = Dog.new(dog_hash)
+    dog.save
+    dog
+  end
+  
+  def self.find_by_id(id)
+    dog = DB[:conn].execute("SELECT * FROM dogs WHERE id = ?", id).flatten
+    Dog.new(id: dog[0], name: dog[1], breed: dog[2])
+  end
+  
+  
 end

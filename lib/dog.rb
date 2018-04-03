@@ -8,19 +8,19 @@ class Dog
     @breed = dog[:breed]
   end
   
-  def Dog::create_table
+  def self.create_table
     DB[:conn].execute("CREATE TABLE IF NOT EXISTS dogs (id INTEGER PRIMARY KEY, name TEXT, breed TEXT")
   end
   
-  def Dog::drop_table
+  def self.drop_table
     DB[:conn].execute("DROP TABLE IF EXISTS dogs")
   end
   
-  def Dog::new_from_db(dog)
+  def self.new_from_db(dog)
     Dog.new(dog[0], dog[1], dog[2])
   end
   
-  def Dog::find_by_name(name)
+  def self.find_by_name(name)
     dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ?", name).flatten
     Dog.new(dog[0], dog[1], dog[2])
   end

@@ -54,7 +54,7 @@ class Dog
     new_dog
   end
   
-  def find_or_create_by(dog_hash)
+  def self.find_or_create_by(dog_hash)
     dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?", dog_hash[:name], dog_hash[:breed]).flatten
     if !dog.empty?
       Dog.find_by_id(dog[0])
@@ -62,4 +62,5 @@ class Dog
       Dog.create(dog_hash)
     end
   end
+  
 end

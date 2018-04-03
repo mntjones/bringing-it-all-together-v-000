@@ -9,7 +9,7 @@ class Dog
   end
   
   def Dog::create_table
-    DB[:conn].execute("CREATE TABLE IF NOT EXISTS dogs (id INTEGER PRIMARY KEY, name TEXT, breed TEXT")
+    DB[:conn].execute("CREATE TABLE dogs (id INTEGER PRIMARY KEY, name TEXT, breed TEXT")
   end
   
   def Dog::drop_table

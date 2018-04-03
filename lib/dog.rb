@@ -53,6 +53,6 @@ class Dog
   end
   
   def find_or_create_by(dog_hash)
-    
+    dog = DB[:conn]
   end
 end
